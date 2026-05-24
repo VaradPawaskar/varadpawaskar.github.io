@@ -135,8 +135,8 @@
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: 3rem;
   }
@@ -149,7 +149,6 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1rem;
-    text-align: center;
   }
 
   .hero-name {
@@ -158,7 +157,6 @@
     font-weight: 700;
     margin-bottom: 0.5rem;
     line-height: 1.1;
-    text-align: center;
   }
 
   .hero-title {
@@ -167,7 +165,6 @@
     color: rgba(255,255,255,0.6);
     font-weight: 300;
     margin-bottom: 1.5rem;
-    text-align: center;
   }
 
   .hero-desc {
@@ -176,16 +173,12 @@
     max-width: 520px;
     line-height: 1.75;
     margin-bottom: 2rem;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .hero-ctas {
     display: flex;
     gap: 0.875rem;
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   .btn-primary {
@@ -576,234 +569,12 @@
   }
 
   /* ── RESPONSIVE ────────────────────────── */
-  @media (max-width: 768px) {
-    :root {
-      --section-pad: 3rem 0;
-    }
-
-    html { font-size: 15px; }
-
-    /* Nav */
-    nav {
-      padding: 0 1rem;
-      height: 50px;
-    }
-
-    .nav-logo { font-size: 1.1rem; }
+  @media (max-width: 680px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    nav { padding: 0 1rem; }
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.78rem; }
-
-    /* Hero */
-    #hero { padding: 3rem 0 2rem; }
-
-    .hero-eyebrow { font-size: 0.75rem; }
-    .hero-name {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-title { font-size: 1rem; }
-    .hero-desc {
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-ctas { gap: 0.5rem; }
-    .btn-primary, .btn-outline {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.85rem;
-    }
-
-    .hero-right {
-      gap: 1rem;
-    }
-
-    .hero-photo-wrapper {
-      width: 200px;
-      height: 200px;
-    }
-
-    .hero-badge-stack {
-      width: 100%;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .hero-badge {
-      flex: 0 1 calc(50% - 0.25rem);
-      padding: 0.5rem 0.8rem;
-      font-size: 0.75rem;
-    }
-
-    /* Sections */
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-label { font-size: 0.7rem; }
-    .container { padding: 0 1.5rem; }
-
-    /* Skills */
-    .skills-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .skill-category { padding: 1rem 1.2rem; }
-    .skill-category-title {
-      font-size: 0.68rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.55rem;
-    }
-
-    /* Projects */
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .project-card { padding: 1.2rem; }
-    .project-title { font-size: 1rem; }
-    .project-desc { font-size: 0.9rem; }
-    .project-tag {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
-    }
-
-    /* Timeline */
-    .timeline { padding-left: 0; }
-    .timeline-item {
-      padding-left: 0;
-      border-left: none;
-      margin-bottom: 1.5rem;
-    }
-
-    .timeline-dot { display: none; }
-    .exp-role { font-size: 1rem; }
-    .exp-date { font-size: 0.8rem; }
-    .exp-company {
-      font-size: 0.9rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .exp-list {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    .exp-list li { margin-bottom: 0.4rem; }
-
-    /* Education */
-    .edu-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .edu-card { padding: 1.2rem; }
-    .edu-degree { font-size: 0.95rem; }
-    .edu-school { font-size: 0.85rem; }
-    .edu-meta { font-size: 0.8rem; }
-
-    /* Contact */
-    .contact-links {
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .contact-link {
-      padding: 0.9rem 1.2rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-tagline { font-size: 0.95rem; }
-
-    section { padding: var(--section-pad); }
-  }
-
-  @media (max-width: 480px) {
-    html { font-size: 14px; }
-
-    nav {
-      padding: 0 0.75rem;
-      height: 48px;
-    }
-
-    .nav-logo { font-size: 1rem; }
-    .nav-links { gap: 0.6rem; }
-    .nav-links a { font-size: 0.65rem; }
-
-    /* Hero */
-    #hero { padding: 2rem 0 1.5rem; }
-    .hero-name {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-title { font-size: 0.9rem; margin-bottom: 1rem; }
-    .hero-desc {
-      font-size: 0.9rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-ctas {
-      flex-direction: column;
-    }
-
-    .btn-primary, .btn-outline {
-      width: 100%;
-      text-align: center;
-      padding: 0.65rem 1rem;
-      font-size: 0.8rem;
-    }
-
-    .hero-photo-wrapper {
-      width: 160px;
-      height: 160px;
-    }
-
-    .hero-badge {
-      flex: 1 1 100%;
-    }
-
-    .hero-badge span { font-size: 0.9rem; }
-
-    /* Sections */
-    .section-title {
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .container { padding: 0 1rem; }
-
-    /* Cards */
-    .project-card { padding: 1rem; }
-    .project-icon {
-      width: 35px;
-      height: 35px;
-      font-size: 1rem;
-    }
-
-    /* General */
-    section { padding: 1.5rem 0; }
-    footer {
-      font-size: 0.8rem;
-      padding: 1.5rem 1rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.5rem;
-    }
-
-    .exp-list { font-size: 0.85rem; }
-    .exp-company { font-size: 0.85rem; }
   }
 </style>
 </head>
@@ -811,7 +582,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">About me</a>
+  <a href="#hero" class="nav-logo">About Me</a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -824,6 +595,18 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">AI &amp; Robotics Engineer</p>
+      <h1 class="hero-name">About me<br />Pawaskar</h1>
+      <p class="hero-title">MSc Artificial Intelligence &amp; Robotics · Hof University of Applied Sciences, Germany</p>
+      <p class="hero-desc">
+        Software engineer turned AI researcher — with 2 years of production experience at Capgemini and a strong focus on deep learning, computer vision, and robotic systems. Seeking AI/ML &amp; Robotics internships in Germany.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
     <div class="hero-right">
       <div class="hero-photo-wrapper">
         <!-- Replace 'your-photo.jpg' with your actual image filename or URL -->
@@ -833,18 +616,6 @@
         <div class="hero-badge"><span>2+</span>Years Industry Exp.</div>
         <div class="hero-badge"><span>3</span>AI/ML Projects</div>
         <div class="hero-badge"><span>MSc</span>AI &amp; Robotics</div>
-      </div>
-    </div>
-    <div>
-      <p class="hero-eyebrow">AI &amp; Robotics Engineer</p>
-      <h1 class="hero-name">Varad<br />Pawaskar</h1>
-      <p class="hero-title">MSc Artificial Intelligence &amp; Robotics · Hof University of Applied Sciences, Germany</p>
-      <p class="hero-desc">
-        Software engineer turned AI researcher — with 2 years of production experience at Capgemini and a strong focus on deep learning, computer vision, and robotic systems. Seeking AI/ML &amp; Robotics internships in Germany.
-      </p>
-      <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
       </div>
     </div>
   </div>
