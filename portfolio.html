@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Varad | AI & Robotics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #16284d;
+    --navy-light: #1e3460;
+    --accent: #c07d35;
+    --accent-hover: #a86a28;
+    --text: #1c1c1c;
+    --muted: #6b7280;
+    --bg: #f7f6f2;
+    --white: #ffffff;
+    --border: #e2e0da;
+    --card-bg: #ffffff;
+    --tag-bg: #eef0f7;
+    --tag-text: #2a3e6e;
+    --radius: 8px;
+    --radius-lg: 14px;
+    --section-pad: 5rem 0;
+    --max-w: 960px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    line-height: 1.25;
+  }
+
+  /* ── NAV ───────────────────────────────── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: #fff; }
+
+  /* ── LAYOUT HELPERS ────────────────────── */
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
+  section { padding: var(--section-pad); }
+
+  .section-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 2.5rem;
+  }
+
+  .divider {
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 0.75rem 0 2.5rem;
+  }
+
+  /* ── HERO ──────────────────────────────── */
+  #hero {
+    background: var(--navy);
+    padding: 6rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 85% 40%, rgba(192,125,53,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(255,255,255,0.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.55);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .hero-photo-wrapper {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    padding: 4px;
+    background: rgba(255,255,255,0.05);
+    flex-shrink: 0;
+  }
+
+  .hero-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-badge-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    opacity: 0.85;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .hero-badge span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ── SKILLS ────────────────────────────── */
+  #skills { background: var(--white); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .skill-category {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.4rem;
+  }
+
+  .skill-category-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+  }
+
+  /* ── PROJECTS ──────────────────────────── */
+  #projects { background: var(--bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+  }
+
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(22,40,77,0.09);
+  }
+
+  .project-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius);
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .project-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.1rem;
+    flex: 1;
+    line-height: 1.65;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .project-tag {
+    background: #eef0f7;
+    color: var(--tag-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+  }
+
+  /* ── EXPERIENCE ────────────────────────── */
+  #experience { background: var(--white); }
+
+  .timeline { position: relative; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-role {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .exp-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: #fdf2e6;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .exp-company {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-list li {
+    font-size: 0.9rem;
+    color: var(--text);
+    padding-left: 1.1rem;
+    position: relative;
+    margin-bottom: 0.35rem;
+    line-height: 1.65;
+  }
+
+  .exp-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 3px;
+  }
+
+  /* ── EDUCATION ─────────────────────────── */
+  #education { background: var(--bg); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.35rem 1.5rem;
+  }
+
+  .edu-degree {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-school {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .edu-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ───────────────────────────── */
+  #contact {
+    background: var(--navy);
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  #contact .section-title { color: #fff; margin-bottom: 0.5rem; }
+  #contact .divider { margin: 0.75rem auto 1.75rem; }
+  #contact .section-label { color: var(--accent); }
+
+  .contact-tagline {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 440px;
+    margin: 0 auto 2.25rem;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.65rem 1.4rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: var(--radius);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+
+  /* ── FOOTER ────────────────────────────── */
+  footer {
+    background: #0f1e3a;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── FADE IN ───────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ────────────────────────── */
+  @media (max-width: 680px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">About Me</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">AI &amp; Robotics Engineer</p>
+      <h1 class="hero-name">Varad<br />Pawaskar</h1>
+      <p class="hero-title">MSc Artificial Intelligence &amp; Robotics · Hof University of Applied Sciences, Germany</p>
+      <p class="hero-desc">
+        Software engineer turned AI researcher — with 2 years of production experience at Capgemini and a strong focus on deep learning, computer vision, and robotic systems. Seeking AI/ML &amp; Robotics internships in Germany.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-wrapper">
+        <!-- Replace 'your-photo.jpg' with your actual image filename or URL -->
+        <img src="Varad_photo.jpg" alt="Varad Pawaskar" onerror="this.style.background='rgba(255,255,255,0.12)'" />
+      </div>
+      <div class="hero-badge-stack">
+        <div class="hero-badge"><span>2+</span>Years Industry Exp.</div>
+        <div class="hero-badge"><span>3</span>AI/ML Projects</div>
+        <div class="hero-badge"><span>MSc</span>AI &amp; Robotics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label fade-in">Technical Skills</p>
+    <div class="divider fade-in"></div>
+    <div class="skills-grid">
+      <div class="skill-category fade-in">
+        <p class="skill-category-title">Languages</p>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">SQL</span>
+          <span class="tag">C++</span>
+          <span class="tag">Bash</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <p class="skill-category-title">AI / ML / Data</p>
+        <div class="skill-tags">
+          <span class="tag">PyTorch</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Diffusion Models</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Data Analysis</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <p class="skill-category-title">Robotics &amp; Simulation</p>
+        <div class="skill-tags">
+          <span class="tag">ROS / ROS2</span>
+          <span class="tag">Gazebo</span>
+          <span class="tag">SLAM</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Motion Planning</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <p class="skill-category-title">Backend &amp; DevOps</p>
+        <div class="skill-tags">
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Spring Batch</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">Docker</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Git</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+          </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label fade-in">Projects</p>
+    <h2 class="section-title fade-in">What I've Built</h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-icon">🧠</div>
+        <h3 class="project-title">Diffusion Models for Face Generation (DDPM &amp; DDIM)</h3>
+        <p class="project-desc">
+          Gathered and interpreted large-scale image data (CelebA) to train generative models using PyTorch. Conducted performance research by comparing DDPM and DDIM sampling methods to optimize computational efficiency and image quality.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">PyTorch</span>
+          <span class="project-tag">DDPM</span>
+          <span class="project-tag">DDIM</span>
+          <span class="project-tag">CelebA</span>
+          <span class="project-tag">Generative Models</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-icon">🤖</div>
+        <h3 class="project-title">ROS Obstacle Avoidance Robot</h3>
+        <p class="project-desc">
+          Developed an autonomous robot in ROS/Gazebo capable of real-time obstacle detection and avoidance. Implemented sensor fusion with laser scan data and reactive navigation logic.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">ROS</span>
+          <span class="project-tag">Gazebo</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Sensor Fusion</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-icon">❤️</div>
+        <h3 class="project-title">AI Healthguard</h3>
+        <p class="project-desc">
+          Heart disease prediction system using classical ML and deep learning models. Focused on clinical feature engineering, model interpretability, and deployment as a web-based health screening tool.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Classification</span>
+          <span class="project-tag">Healthcare AI</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label fade-in">Work Experience</p>
+    <h2 class="section-title fade-in">Professional History</h2>
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="exp-header">
+          <p class="exp-role">Software Engineer</p>
+          <span class="exp-date">April 2023 - March   2025</span>
+        </div>
+        <p class="exp-company">Capgemini · Pune, India</p>
+        <ul class="exp-list">
+          <li>Designed and delivered REST APIs and microservices using Java and Spring Boot for enterprise-scale applications.</li>
+          <li>Deployed and managed services on AWS (EC2, S3, RDS), leveraging Docker for containerisation and consistent environments.</li>
+          <li>Collaborated in Agile teams on end-to-end feature delivery, including requirements analysis, development, and production support.</li>
+          <li>Optimised SQL queries and database schemas in PostgreSQL, improving query performance for high-volume data workloads.</li>
+        </ul>
+      </div>
+
+      <!-- Add more roles here -->
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label fade-in">Education</p>
+    <h2 class="section-title fade-in">Academic Background</h2>
+    <div class="edu-grid">
+
+      <div class="edu-card fade-in">
+        <p class="edu-degree">Master of Science – Artificial Intelligence and Robotics</p>
+        <p class="edu-school">Hof University of Applied Sciences</p>
+        <p class="edu-meta">Hof, Germany · 15/03/2025 – Current</p>
+      </div>
+
+      <div class="edu-card fade-in">
+        <p class="edu-degree">Bachelor of Engineering – Electronics and Telecommunications Engineering</p>
+        <p class="edu-school">Modern Education Society's College of Engineering (MESCOE)</p>
+        <p class="edu-meta">Pune, India · 08/2018 – 08/2022 · CGPA: 9.49</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="divider"></div>
+    <p class="contact-tagline">Open to AI/ML and Robotics internship opportunities in Germany. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="tel:+4915510826707" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +49 155 1082 6707
+      </a>
+      <a href="mailto:varadpawaskar@gmail.com" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        varadpawaskar@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/varad-pawaskar" target="_blank" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/VaradPawaskar" target="_blank" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Varad Pawaskar · Built with HTML &amp; CSS
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const siblings = Array.from(el.parentElement.querySelectorAll('.fade-in'));
+        const idx = siblings.indexOf(el);
+        el.style.transitionDelay = (idx * 0.07) + 's';
+        el.classList.add('visible');
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
